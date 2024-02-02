@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://b1ecgj1dtyscu"]
+
+[ext_resource type="Texture2D" uid="uid://cn1j5m552upwf" path="res://Design/CheckButton/checked.png" id="1_2pa2b"]
+[ext_resource type="FontFile" uid="uid://xwny1whr8lcw" path="res://Design/Font/Rubik/static/Rubik-Bold.ttf" id="1_r3hrm"]
+[ext_resource type="Texture2D" uid="uid://c1li23kk6pdtn" path="res://Design/CheckButton/checked_disable.png" id="2_meb8m"]
+[ext_resource type="Texture2D" uid="uid://8yyom8gd1bk7" path="res://Design/CheckButton/unchecked.png" id="3_nsotl"]
+[ext_resource type="Texture2D" uid="uid://b2dx7lscud68" path="res://Design/CheckButton/unchecked_disabled.png" id="4_dvdt3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2cjc"]
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+
+[resource]
+Button/fonts/font = ExtResource("1_r3hrm")
+CheckButton/icons/checked = ExtResource("1_2pa2b")
+CheckButton/icons/checked_disabled = ExtResource("2_meb8m")
+CheckButton/icons/unchecked = ExtResource("3_nsotl")
+CheckButton/icons/unchecked_disabled = ExtResource("4_dvdt3")
+CheckButton/styles/focus = SubResource("StyleBoxFlat_k2cjc")
+Label/fonts/font = ExtResource("1_r3hrm")
+LineEdit/colors/selection_color = Color(0.501961, 0.501961, 0.501961, 1)
+LineEdit/fonts/font = ExtResource("1_r3hrm")

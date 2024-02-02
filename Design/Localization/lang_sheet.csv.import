@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bfy0f0aq0j8np"
+
+[deps]
+
+files=["res://Design/Localization/lang_sheet.en.translation", "res://Design/Localization/lang_sheet.fa.translation"]
+
+source_file="res://Design/Localization/lang_sheet.csv"
+dest_files=["res://Design/Localization/lang_sheet.en.translation", "res://Design/Localization/lang_sheet.fa.translation"]
+
+[params]
+
+compress=true
+delimiter=0

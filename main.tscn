@@ -1,0 +1,210 @@
+[gd_scene load_steps=7 format=3 uid="uid://dt14rwuuhp7kr"]
+
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_x7d8p"]
+[ext_resource type="Theme" uid="uid://b1ecgj1dtyscu" path="res://Design/Main_Theme.tres" id="2_ciwlf"]
+
+[sub_resource type="Animation" id="Animation_lfwno"]
+resource_name = "Dark"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.804743, 0.804743, 0.804743, 1), Color(0.133196, 0.133196, 0.133196, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v20lt"]
+resource_name = "Light"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.133196, 0.133196, 0.133196, 1), Color(0.804743, 0.804743, 0.804743, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xx4tp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.133196, 0.133196, 0.133196, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_83c0s"]
+_data = {
+"Dark": SubResource("Animation_lfwno"),
+"Light": SubResource("Animation_v20lt"),
+"RESET": SubResource("Animation_xx4tp")
+}
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x7d8p")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.133196, 0.133196, 0.133196, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_83c0s")
+}
+
+[node name="Settings" type="MarginContainer" parent="."]
+layout_direction = 2
+layout_mode = 0
+offset_right = 197.0
+offset_bottom = 117.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings"]
+layout_mode = 2
+
+[node name="Theme" type="MarginContainer" parent="Settings/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings/VBoxContainer/Theme"]
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="Settings/VBoxContainer/Theme/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ciwlf")
+button_pressed = true
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer/Theme/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ciwlf")
+text = "DARK"
+
+[node name="Language" type="MarginContainer" parent="Settings/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings/VBoxContainer/Language"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="Settings/VBoxContainer/Language/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ciwlf")
+item_count = 2
+selected = 0
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Persian"
+popup/item_1/id = 1
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer/Language/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ciwlf")
+text = "LANG"
+
+[node name="text" type="MarginContainer" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.271
+anchor_right = 0.5
+anchor_bottom = 0.271
+offset_left = -347.0
+offset_top = -89.12
+offset_right = 342.0
+offset_bottom = 92.88
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="text"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="LineEdit" type="LineEdit" parent="text/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ciwlf")
+theme_override_colors/selection_color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="Label" type="Label" parent="text/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ciwlf")
+text = "TEXT"
+
+[node name="start" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.636
+anchor_right = 0.5
+anchor_bottom = 0.636
+offset_left = -355.0
+offset_top = -128.92
+offset_right = 343.0
+offset_bottom = 122.08
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="start"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="start/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="start/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ciwlf")
+text = "TIME"
+
+[node name="LineEdit_min" type="LineEdit" parent="start/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ciwlf")
+alignment = 1
+max_length = 3
+
+[node name="Label2" type="Label" parent="start/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ciwlf")
+text = "MIN"
+
+[node name="Button" type="Button" parent="start/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_ciwlf")
+text = "START"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+
+[connection signal="toggled" from="Settings/VBoxContainer/Theme/HBoxContainer/CheckButton" to="." method="_on_theme_button_toggled"]
+[connection signal="item_selected" from="Settings/VBoxContainer/Language/HBoxContainer/OptionButton" to="." method="_on_lang_button_item_selected"]
+[connection signal="pressed" from="start/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
